@@ -1,0 +1,41 @@
+{
+  "name": "ecommerce-monorepo",
+  "version": "1.0.0",
+  "description": "E-commerce Platform",
+  "keywords": [
+    "ecommerce",
+    "nextjs",
+    "node",
+    "prisma",
+    "docker"
+  ],
+  "homepage": "https://github.com/mihirsangani/marketcart-platform-monorepo#readme",
+  "bugs": {
+    "url": "https://github.com/mihirsangani/marketcart-platform-monorepo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihirsangani/marketcart-platform-monorepo.git"
+  },
+  "license": "ISC",
+  "author": "Mihir Sangani <mihirsangani45@gmail.com>",
+  "type": "module",
+  "private": true,
+  "main": "index.js",
+  "workspaces": [
+    "services/*"
+  ],
+  "scripts": {
+    "dev:all": "docker-compose up --build",
+    "dev:backend": "npm --workspace services/backend run dev",
+    "dev:frontend": "npm --workspace services/frontend run dev",
+    "build": "npm -w services/backend run build && npm -w services/frontend run build",
+    "start:backend": "npm --workspace services/backend run start",
+    "start:frontend": "npm --workspace services/frontend run start",
+    "lint": "echo \"Add lint scripts in packages\"",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
