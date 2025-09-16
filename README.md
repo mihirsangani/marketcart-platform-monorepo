@@ -122,7 +122,7 @@ make status           # Check service status
 
 #### Prerequisites
 
-- **Node.js** (v20 or higher)
+- **Node.js** (v22 or higher)
 - **npm** or **yarn**
 - **PostgreSQL** database
 - **Git**
