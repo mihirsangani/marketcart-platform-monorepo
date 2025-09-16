@@ -67,14 +67,67 @@ marketcart-platform-monorepo/
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### Option 1: Docker Setup (Recommended) 🐳
 
-- **Node.js** (v18 or higher)
+The easiest way to get started is using Docker. This will set up the entire platform with a single command.
+
+#### Prerequisites
+- **Docker** (v20.10 or higher)
+- **Docker Compose** (v2.0 or higher)
+- **Make** (optional, for using Makefile commands)
+
+#### One-Command Setup
+```bash
+# Clone the repository
+git clone <repository-url>
+cd marketcart-platform-monorepo
+
+# Start everything with Docker (Development)
+make setup
+# OR
+docker-compose -f docker-compose.dev.yml up --build -d
+```
+
+#### Available Docker Commands
+```bash
+# Development
+make dev              # Start development environment
+make dev-detached     # Start in background
+make logs-dev         # View logs
+make down-dev         # Stop development services
+
+# Production
+make prod             # Start production environment
+make prod-detached    # Start in background
+make logs             # View logs
+make down             # Stop all services
+
+# Database
+make db-migrate       # Run migrations
+make db-seed          # Seed database
+make db-studio        # Open Prisma Studio
+
+# Cleanup
+make clean            # Remove all containers and volumes
+make status           # Check service status
+```
+
+#### Services URLs (Docker)
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:4000
+- **Database**: localhost:5432
+- **Redis**: localhost:6379
+
+### Option 2: Manual Setup
+
+#### Prerequisites
+
+- **Node.js** (v20 or higher)
 - **npm** or **yarn**
 - **PostgreSQL** database
 - **Git**
 
-### Installation
+#### Installation
 
 1. **Clone the repository**
    ```bash
@@ -99,7 +152,7 @@ marketcart-platform-monorepo/
    npm install
    ```
 
-### Database Setup
+#### Database Setup
 
 1. **Create a PostgreSQL database**
    ```sql
@@ -126,9 +179,9 @@ marketcart-platform-monorepo/
    npm run prisma:seed
    ```
 
-### Running the Application
+#### Running the Application
 
-#### Development Mode
+##### Development Mode
 
 1. **Start the backend server**
    ```bash
@@ -144,7 +197,7 @@ marketcart-platform-monorepo/
    ```
    Frontend will be available at: `http://localhost:3000`
 
-#### Production Mode
+##### Production Mode
 
 1. **Build the backend**
    ```bash
